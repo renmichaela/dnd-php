@@ -1,0 +1,22 @@
+{
+    "name": "renmichaela/dnd-php",
+    "description": "DnD as code",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^10.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DndPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "renmichaela",
+            "email": "rensuellentrop@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
