@@ -3,18 +3,13 @@
 namespace tests;
 
 use DndPhp\Character;
-use DndPhp\Classes\Bard;
 use DndPhp\Classes\CharacterClass;
-use DndPhp\Races\Elf;
 use DndPhp\Races\CharacterRace;
 use ErrorException;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Character::class)]
-#[UsesClass(Bard::class)]
-#[UsesClass(Elf::class)]
 class CharacterTest extends TestCase
 {
   /**
@@ -34,7 +29,8 @@ class CharacterTest extends TestCase
    */
   public function it_can_have_a_class()
   {
-    $bard = new Character("The Bard", new Bard);
+    $class = $this->createStub(CharacterClass::class);
+    $bard = new Character("The Bard", new $class);
 
     $this->assertInstanceOf(CharacterClass::class, $bard->characterClass());
   }
@@ -56,7 +52,8 @@ class CharacterTest extends TestCase
    */
   public function it_can_have_a_race()
   {
-    $elf = new Character("The Elf", null, new Elf);
+    $race = $this->createStub(CharacterRace::class);
+    $elf = new Character("The Elf", null, new $race);
 
     $this->assertInstanceOf(CharacterRace::class, $elf->characterRace());
   }
